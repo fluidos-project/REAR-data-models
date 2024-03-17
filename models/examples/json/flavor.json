@@ -1,0 +1,29 @@
+{
+    "FlavorID": "fla-12345",
+    "ProviderID": "prov-xyz",
+    "Location": {
+      "Latitude": "40.7128",
+      "Longitude": "-74.0059",
+      "Altitude": "100",  
+      "AdditionalNotes": "Located in a secure data center"
+    },
+    "NetworkPropertyType": "Ethernet",
+    "FlavorType": "*",  
+    "Price": {
+      "Amount": "10.00",
+      "Currency": "USD",
+      "Period": "Hourly"
+    },
+    "Owner": {
+      "Domain": "example.com",
+      "NodeID": "node-abc",
+      "IP": "10.0.0.1",
+      "AdditionalInformation": {
+        "LiqoID": "liqo-123"
+      }
+    },
+    "OptionalFields": {
+      "Availability": true,
+      "WorkerID": "worker-1"
+    }
+  }

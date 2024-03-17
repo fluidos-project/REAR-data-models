@@ -1,0 +1,23 @@
+@startjson
+{
+  "vm": {
+    "Characteristics": {
+      "Architecture": "x86_64",
+      "CPU": 2,
+      "Memory": 4096,
+      "GPU": 0,
+      "Storage": 100,
+      "SecurityStandards": [
+        "GDPR"
+      ],
+      "Latency": 10
+    },
+    "Policy": {
+      "Aggregatable": {
+        "MinCount": 1,
+        "MaxCount": 4
+      }
+    }
+  }
+}
+@endjson

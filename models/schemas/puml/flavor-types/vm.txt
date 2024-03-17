@@ -1,0 +1,69 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "VM",
+    "description": "Virtual Machine flavor type",
+    "properties": {
+        "Characteristics": {
+            "type": "object",
+            "properties": {
+                "Architecture": {
+                    "type": "string",
+                    "description": "Architecture of the Flavor."
+                },
+                "CPU": {
+                    "type": "integer",
+                    "description": "Number of CPU cores of the Flavor."
+                },
+                "Memory": {
+                    "type": "integer",
+                    "description": "Amount of RAM of the Flavor."
+                },
+                "GPU": {
+                    "type": "integer",
+                    "description": "Number of GPU cores of the Flavor."
+                },
+                "Storage": {
+                    "type": "integer",
+                    "description": "The amount of storage"
+                },
+                "SecurityStandards": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "Security standards supported by the Flavor (e.g., GDPR)."
+                    }
+                },
+                "Latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor."
+                }
+            },
+            "additionalProperties": false
+        },
+        "Policy": {
+            "type": "object",
+            "properties": {
+                "Aggregatable": {
+                    "type": "object",
+                    "properties": {
+                        "MinCount": {
+                            "type": "integer",
+                            "description": "Minimum required number of instances of the Flavor."
+                        },
+                        "MaxCount": {
+                            "type": "integer",
+                            "description": "Maximum required number of instances of the Flavor."
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "Aggregatable"
+            ]
+        }
+    }
+}
+@endjson

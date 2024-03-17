@@ -1,0 +1,88 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "K8Slice",
+    "description": "Kubernetes Flavor Type",
+    "properties": {
+        "Characteristics": {
+            "type": "object",
+            "properties": {
+                "CPU": {
+                    "type": "integer",
+                    "description": "The number of CPU cores"
+                },
+                "Pods": {
+                    "type": "integer",
+                    "description": "The number of pods"
+                },
+                "Memory": {
+                    "type": "integer",
+                    "description": "The amount of memory"
+                },
+                "GPU": {
+                    "type": "integer",
+                    "description": "The amount of GPU"
+                },
+                "Storage": {
+                    "type": "integer",
+                    "description": "The amount of storage"
+                },
+                "SecurityStandards": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "Security standards supported by the Flavor (e.g., GDPR)."
+                    }
+                },
+                "Latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor."
+                }
+            },
+            "additionalProperties": false
+        },
+        "Policy": {
+            "type": "object",
+            "properties": {
+                "Aggregatable": {
+                    "type": "object",
+                    "properties": {
+                        "MinCount": {
+                            "type": "integer",
+                            "description": "Minimum required number of instances of the Flavor."
+                        },
+                        "MaxCount": {
+                            "type": "integer",
+                            "description": "Maximum required number of instances of the Flavor."
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "Partitionable": {
+                    "type": "object",
+                    "properties": {
+                        "CpuMin": {
+                            "type": "integer",
+                            "description": "Minimum required number of CPU cores of the Flavor."
+                        },
+                        "MemoryMin": {
+                            "type": "integer",
+                            "description": "Minimum required amount of RAM of the Flavor."
+                        },
+                        "CpuStep": {
+                            "type": "integer",
+                            "description": "Incremental value of CPU cores of the Flavor."
+                        },
+                        "MemoryStep": {
+                            "type": "integer",
+                            "description": "Incremental value of RAM of the Flavor."
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    }
+}
+@endjson
