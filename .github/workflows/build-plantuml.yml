@@ -1,0 +1,40 @@
+name: Generate Files
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # You can choose a different runner OS if needed
+
+    steps:
+      - uses: actions/checkout@v4  # Checkout your repository code
+
+      - name: Run script
+        run: |
+          cd models/schemas/
+          bash ./generate_puml.sh  
+          cd ../examples
+          bash ./generate_puml.sh
+          # Add any additional commands your script might need (e.g., install dependencies)
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "::set-output name=changes::true"
+          else
+            echo "::set-output name=changes::false"
+          fi
+          
+      - name: Commit changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Auto-generated files"
+          git push origin HEAD:master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
