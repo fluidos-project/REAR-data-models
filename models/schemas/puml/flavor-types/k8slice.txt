@@ -30,9 +30,9 @@
                 },
                 "SecurityStandards": {
                     "type": "array",
+                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
                     "items": {
-                        "type": "string",
-                        "description": "Security standards supported by the Flavor (e.g., GDPR)."
+                        "type": "string"
                     }
                 },
                 "Latency": {
