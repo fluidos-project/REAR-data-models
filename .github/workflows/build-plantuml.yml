@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4  # Checkout your repository code
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Run script
         run: |
           cd models/schemas/
@@ -19,6 +24,16 @@ jobs:
           bash ./generate_puml.sh
           # Add any additional commands your script might need (e.g., install dependencies)
 
+      - name: Generate SVG
+        run: |
+          cd models/
+          python3 generate_svg.py ${{ steps.extract_branch.outputs.branch }}
+
+      - name: Generate Docs
+        run: | 
+          cd docs
+          python3 generate_docs.py 
+              
       - name: Check for changes
         id: git-check
         run: |

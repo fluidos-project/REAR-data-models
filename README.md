@@ -31,7 +31,7 @@ The resource data model can be summarized in the following:
      - [DB](#ServiceType-DB)
    - [Sensor](#Sensor)
 
-In the following we represent some examples of JSON, you can find the original JSON schemas [here](https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas).
+In the following we represent some examples of JSON, you can find the original JSON schemas [here](https://github.com/fluidos-project/REAR-data-models/tree/master/models/schemas).
 
 ## Flavor
 
@@ -145,4 +145,3 @@ The service FlavorType has the following characteristics:
  - ServiceType: A reference to a specific service type schema using a JSON reference ($ref) to an external file like "service-types/db.json". This allows defining details specific to each service type.
 
 #### ServiceType DB
-
