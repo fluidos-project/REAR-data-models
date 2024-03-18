@@ -22,10 +22,10 @@ example_dir = "models/examples/svg"
 filenames = ["flavor.json", "flavor-types/k8slice.json", "flavor-types/service.json", "flavor-types/vm.json", "flavor-types/sensor.json"]
 res = [""]
 res.append("```")
-res.append("DISCLAIMER #1: The content of this document is automatically generated upon pushing the files on GitHub. The generation starts from the JSON schema and examples contained in the repository. Do not try to modify this document, just the JSON files.")
+res.append("DISCLAIMER #1: The content of this document is automatically generated upon pushing the files on GitHub. \nThe generation starts from the JSON schema and examples contained in the repository. \nDo not try to modify this document, just the JSON files.")
 res.append("```")
 res.append("```")
-res.append("DISCLAIMER #2: Still, the generation of examples of JSONs (starting from the schema) is not automated yet. Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON.")
+res.append("DISCLAIMER #2: Still, the generation of examples of JSONs (starting from the schema) is not automated yet. \nTherefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON.")
 res.append("```")
 res.append("In the following we represent some examples of JSON, you can find the original JSON schemas [here](models/schemas).")
 
