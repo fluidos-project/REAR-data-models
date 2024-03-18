@@ -25,7 +25,7 @@
                 },
                 "Altitude": {
                     "type": "string",
-                    "description": "Altitude of the location"
+                    "description": "Altitude of the location expressed in meters"
                 },
                 "AdditionalNotes": {
                     "type": "string",
