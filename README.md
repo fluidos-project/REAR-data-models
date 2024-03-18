@@ -1,9 +1,12 @@
 
 ```
-DISCLAIMER #1: The content of this document is automatically generated upon pushing the files on GitHub. The generation starts from the JSON schema and examples contained in the repository. Do not try to modify this document, just the JSON files.
+DISCLAIMER #1: The content of this document is automatically generated upon pushing the files on GitHub. 
+The generation starts from the JSON schema and examples contained in the repository. 
+Do not try to modify this document, just the JSON files.
 ```
 ```
-DISCLAIMER #2: Still, the generation of examples of JSONs (starting from the schema) is not automated yet. Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON.
+DISCLAIMER #2: Still, the generation of examples of JSONs (starting from the schema) is not automated yet. 
+Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON.
 ```
 In the following we represent some examples of JSON, you can find the original JSON schemas [here](models/schemas).
 
