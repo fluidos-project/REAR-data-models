@@ -1,147 +1,101 @@
-# Content of this repository
-
-The repository is organized as follows:
 
 ```
-.
-├── models
-    ├── examples
-    |   ├── json              # contains JSON examples generated from JSON schemas
-    |   ├── puml              # contains the puml files displayed in the README (do not edit)
-    |   └── generate_puml.sh  # utility tool to generate the puml files from examples
-    └── schemas               # contains all the JSON schemas
-        ├── puml              # contains the puml files displayed in the README (do not edit)
-        └── generate_puml.sh  # utility tool to generate the puml files from schemas
+DISCLAIMER #1: The content of this document is automatically generated upon pushing the files on GitHub. The generation starts from the JSON schema and examples contained in the repository. Do not try to modify this document, just the JSON files.
 ```
+```
+DISCLAIMER #2: Still, the generation of examples of JSONs (starting from the schema) is not automated yet. Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON.
+```
+In the following we represent some examples of JSON, you can find the original JSON schemas [here](models/schemas).
 
-# How to use
+# Flavor
+![0](models/examples/svg/flavor.svg)
+- **FlavorID**. The unique identifier for a flavor ['string']
+- **ProviderID**. The unique identifier for a provider ['string']
+- **Location**:
+  - **Latitude**. Latitude of the location ['string']
+  - **Longitude**. Longitude of the location ['string']
+  - **Altitude**. Altitude of the location expressed in meters ['string']
+  - **AdditionalNotes**. Additional notes about the location ['string']
+- **NetworkPropertyType**. Type of network property ensured by the privider (e.g., 5G, Wifi, Ethernet) ['string']
+- **FlavorType**. A reference to a specific flavor type schema using JSON references ($ref) to external files like 'k8slice.json', 'vm.json', etc. This allows defining details specific to each flavor type.
+- **Price**:
+  - **Amount**. Amount of the price. ['string']
+  - **Currency**. Currency of the price. ['string']
+  - **Period**. Period of the price. ['string']
+- **Owner**:
+  - **Domain**. Domain of the node. ['string']
+  - **NodeID**. ID of the node. ['string']
+  - **IP**. IP of the node. ['string']
+  - **AdditionalInformation**:
+    - **LiqoID**. Liqo ID of the node. ['string']
+- **OptionalFields**:
+  - **Availability**. Availability flag of the Flavor. ['boolean']
+  - **WorkerID**. ID of the worker that provides the Flavor. ['string']
 
-A GitHub action automatically generates the images contained in the README starting from the JSON files contained both in the examples and schemas subfolders.
-
-Still, the generation of examples of JSONs (starting from the schema) is not automated yet. Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON schema to the prompt and asking for an example of compliant JSON. 
-
-# Resources
-
-The resource data model can be summarized in the following:
- - [Flavor](#flavor)
- - FlavorType
-   - [K8Slice](#K8Slice)
-   - [VM](#VM)
-   - [Service](#Service)
-     - [DB](#ServiceType-DB)
-   - [Sensor](#Sensor)
-
-In the following we represent some examples of JSON, you can find the original JSON schemas [here](https://github.com/fluidos-project/REAR-data-models/tree/master/models/schemas).
-
-## Flavor
-
-The Flavor data model wraps the FlavorType and contains informations shared among all the different FlavorTypes.
-
-![flavor](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor.txt&fmt=svg)
-
-The Flavor has the following characteristics:
- - FlavorID, the unique identifier for the flavor [string].
- - ProviderID, the unique identifier for the provider [string].
- - Location, defines the flavor's location with:
-   - latitude 
-   - longitude
-   - altitude (unit meters) [integer]
-   - optional additional notes [string].
- - NetworkPropertyType, the type of network property ensured by the provider (e.g., "5G", "Wifi", "Ethernet") [list of string]
- - FlavorType, a reference to a specific flavor type schema using JSON references ($ref) to external files like "k8slice.json", "vm.json", etc. This allows defining details specific to each flavor type.
- - Price, defines the flavor's price with: 
-   - amount [integer]
-   - currency [string]
-   - period [string].
- - Owner: Information about the node that owns the flavor, including:
-   - domain [string]
-   - node ID [string]
-   - IP [string]
-   - optional additional information with a property for "LiqoID" [string]
- - OptionalFields: Contains optional properties like "Availability" [bool] and "WorkerID" [string] for the worker providing the flavor.
-
-## FlavorType
-
+# FlavorType
 The FlavorType describes the actual flavor that is adverised.
 
-> **The filtering mechanism implemented in REAR relies on the Flavortype. Therefore, any field for which we want to implement some filtering criteria should be included in the corresponding FlavorType (e.g., if I want to filter a FlavorType depending on the latency, I need to include that field in the related FlavorType).**
+## k8slice
+![1](models/examples/svg/flavor-types/k8slice.svg)
+- **Characteristics**:
+  - **CPU**. The number of CPU cores ['integer']
+  - **Pods**. The number of pods ['integer']
+  - **Memory**. The amount of memory ['integer']
+  - **GPU**. The amount of GPU ['integer']
+  - **Storage**. The amount of storage ['integer']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+  - **Latency**. The latency of the Flavor. ['integer']
+- **Policy**:
+  - **Aggregatable**:
+    - **MinCount**. Minimum required number of instances of the Flavor. ['integer']
+    - **MaxCount**. Maximum required number of instances of the Flavor. ['integer']
+  - **Partitionable**:
+    - **CpuMin**. Minimum required number of CPU cores of the Flavor. ['integer']
+    - **MemoryMin**. Minimum required amount of RAM of the Flavor. ['integer']
+    - **CpuStep**. Incremental value of CPU cores of the Flavor. ['integer']
+    - **MemoryStep**. Incremental value of RAM of the Flavor. ['integer']
 
-### K8Slice
+## service
+![2](models/examples/svg/flavor-types/service.svg)
+- **Characteristics**:
+  - **Name**. Name of the flavor. ['string']
+  - **Description**. Description of the flavor. ['string']
+  - **Tags**. Tags associated with the flavor. ['array']
+  - **Plan**. Plan of the flavor. ['string']
+  - **Latency**. The latency of the Flavor. ['integer']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+- **ServiceType**. ServiceType to describe the specific characteristics of the advertised flavor.
 
-![K8slice](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor-types/k8slice.txt&fmt=svg)
+## vm
+![3](models/examples/svg/flavor-types/vm.svg)
+- **Characteristics**:
+  - **Architecture**. Architecture of the Flavor. ['string']
+  - **CPU**. Number of CPU cores of the Flavor. ['integer']
+  - **Memory**. Amount of RAM of the Flavor. ['integer']
+  - **GPU**. Number of GPU cores of the Flavor. ['integer']
+  - **Storage**. The amount of storage ['integer']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+  - **Latency**. The latency of the Flavor. ['integer']
+- **Policy**:
+  - **Aggregatable**:
+    - **MinCount**. Minimum required number of instances of the Flavor. ['integer']
+    - **MaxCount**. Maximum required number of instances of the Flavor. ['integer']
 
-The K8Slice Flavor type has the following characteristics:
- - Characteristics: 
-   - CPU, the number of CPU cores (unit core)[integer]
-   - Pod, the number of pods that can be deployed in the remote K8Slice (unit number of pods)[integer]
-   - Memory, the amount of RAM available (unit MB)[integer]
-   - GPU, the number of GPU processing units (unit GPU processing cores)[integer]
-   - Storage, the disk spacce reserved for the K8Slice (unit GB)[integer]
-   - SecurityStandards, one or more security standards that the FlavorType is compliant with (TODO: [], define the list of acceptable values)
- - Policy:
-   - Aggregatable, describing if multiple instances can be aggregated in one single virtual node
-     - MinCount (unit count)[integer]
-     - MaxCount (unit count)[integer]
-   - Partitionable, describing if the specified K8Slice can be  partitioned, obtaining only a subset of the offered resources
-     - CPUMin, the minimum number of CPUs that can be reserved from the K8Slice (unit core)[integer]
-     - MemoryMin, the minimum amount of RAM that can be reserved from the K8Slice (unit Mbytes)[integer]
-     - CPUStep, the step increase in CPU cores to be reserved (unit count)[integer]
-     - MemoryStep, the step increase in RAM to be reserved (unit MB)[integer]
-
-
-### VM
-
-![vm](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor-types/vm.txt&fmt=svg)
-
-The VM Flavor type has the following characteristics:
- - Characteristics:
-   - Architecture, the architecture of the platform (TODO: [], define the list of acceptable values)
-   - CPU, the number of CPU cores (unit core)[integer]
-   - Pod, the number of pods that can be deployed in the remote K8Slice (unit number of pods)[integer]
-   - Memory, the amount of RAM available (unit MB)[integer]
-   - GPU, the number of GPU processing units (unit GPU processing cores)[integer]
-   - Storage, the disk spacce reserved for the K8Slice (unit GB)[integer]
-   - SecurityStandards, one or more security standards that the FlavorType is compliant with (TODO: [], define the list of acceptable values)
- - Policy:
-   - Aggregatable, describing if multiple instances can be aggregated in one single virtual node
-     - MinCount (unit count)[integer]
-     - MaxCount (unit count)[integer]
-
-### Sensor
-
-![sensor](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor-types/sensor.txt&fmt=svg)
-(TODO: I don't see anywhere the type of sensor (temperature, humidity, ...). If I understood correctly the sensor type describes the technology used, maybe we need another field in the datastructure describing that)
-The Sensor Flavor type has the following characteristics:
- - Characteristics
-   - SensorType, the type of sensor described by the FlavorType [one of][Environmental, Motion, Proximity, Infrared] 
-   - SensorModel, the model of the sensor [string]
-   - SensorManufacturer, the sensor manifacturer [string]
-   - SensorMarket, (TODO: describe what that means) [string]
-   - SamplingRate, the frequency of the measurements (unit sample/sec) [integer]
-   - Accuracy, the accuracy reported for the measurements (unit percentage) [0-1]
-   - Consumption, the power consumption of the reported sensor (unit mW) [integer]
-   - Interface, (TODO: describe what that means)
-   - AdditionalProperties
-     - MeasurementUnit, further details the measurement unit
-     - ConsumptionUnit
-     - SamplingRateUnit
-     - AccessProtocol
- - Policy
-   - Aggregatable, describing if multiple instances can be aggregated in one single virtual node
-     - MinCount (unit count)[integer]
-     - MaxCount (unit count)[integer]
-
-### Service
-
-![service](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor-types/service.txt&fmt=svg)
-
-The service FlavorType has the following characteristics:
- - Characteristics
-   - Name, the name of the service flavor [string].
-   - Description, a description of the service flavor [string].
-   - Tags, an array of strings representing tags associated with the flavor.
-   - Plan, the plan associated with the service flavor [string].
-   - Latency, the latency of the service flavor in milliseconds [integer].
- - ServiceType: A reference to a specific service type schema using a JSON reference ($ref) to an external file like "service-types/db.json". This allows defining details specific to each service type.
-
-#### ServiceType DB
+## sensor
+![4](models/examples/svg/flavor-types/sensor.svg)
+- **Characteristics**:
+  - **SensorType**. The type of sensor ['string']
+  - **SensorModel**. The model of sensor ['string']
+  - **SensorManufacturer**. The manufacturer of sensor ['string']
+  - **SensorMarket**. The market of sensor ['string']
+  - **SamplingRate**. The sampling rate of the sensor in milliseconds ['integer']
+  - **Accuracy**. The accuracy reported for the measurements (unit percentage) ['integer']
+  - **Consumption**. The power consumption of the reported sensor (unit mW) ['integer']
+  - **Interface**. Not clear what that means. ['string']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+  - **Latency**. The latency of the Flavor. ['integer']
+  - **additionalProperties**:
+    - **MeasurementUnit**. The unit of measure for the measurements ['string']
+    - **ConsumptionUnit**. The unit of measure for the sensor power consumption ['string']
+    - **SamplingRateUnit**. The unit of measure for the sampling rate ['string']
+    - **AccessProtocol**. Not sure what that means ['string']
