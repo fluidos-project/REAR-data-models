@@ -39,16 +39,6 @@ The Flavor data model wraps the FlavorType and contains informations shared amon
 
 ![flavor](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/examples/puml/flavor.txt&fmt=svg)
 
-<!-- Generated content starts here -->
-<script>
-document.write("This content was generated dynamically using JavaScript.");
-</script>
-<!-- Generated content ends here -->
-
-
-
-
-
 The Flavor has the following characteristics:
  - FlavorID, the unique identifier for the flavor [string].
  - ProviderID, the unique identifier for the provider [string].
