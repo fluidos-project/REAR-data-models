@@ -1,21 +1,21 @@
 # Flavor
 
-![flavor](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas/puml/flavor.txt&fmt=svg)
+![flavor](svg/flavor.svg)
 
 # FlavorType
 
 ## K8Slice
 
-![K8slice](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas/puml/flavor-types/k8slice.txt&fmt=svg)
+![K8slice](svg/flavor-types/k8slice.svg)
 
 ## vm
 
-![vm](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas/puml/flavor-types/vm.txt&fmt=svg)
+![vm](svg/flavor-types/vm.svg)
 
 ## Sensor
 
-![sensor](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas/puml/flavor-types/sensor.txt&fmt=svg)
+![sensor](svg/flavor-types/sensor.svg)
 
 ## Service
 
-![service](https://plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/fluidos-project/REAR-data-models/master/models/schemas/puml/flavor-types/service.txt&fmt=svg)
+![service](svg/flavor-types/service.svg)
