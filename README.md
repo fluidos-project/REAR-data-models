@@ -46,8 +46,13 @@ The FlavorType describes the actual flavor that is adverised.
   - **Memory**. The amount of memory ['integer']
   - **GPU**. The amount of GPU ['integer']
   - **Storage**. The amount of storage ['integer']
-  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+- **Properties**:
   - **Latency**. The latency of the Flavor. ['integer']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+  - **CarbonFootprint**:
+    - **Embodied**. Embodied carbon of the node hardware normalized by its expected lifetime. ['integer']
+    - **Operational**. Forecasted average carbon intensity of the node for the next N windows/hours. ['integer']
+  - **WorkloadCaracteristics**. Forecasted average utilization of the node for the next N windows/hours. ['array']
 - **Policy**:
   - **Aggregatable**:
     - **MinCount**. Minimum required number of instances of the Flavor. ['integer']
@@ -77,8 +82,13 @@ The FlavorType describes the actual flavor that is adverised.
   - **Memory**. Amount of RAM of the Flavor. ['integer']
   - **GPU**. Number of GPU cores of the Flavor. ['integer']
   - **Storage**. The amount of storage ['integer']
-  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+- **Properties**:
   - **Latency**. The latency of the Flavor. ['integer']
+  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). ['array']
+  - **CarbonFootprint**:
+    - **Embodied**. Embodied carbon of the node hardware normalized by its expected lifetime. ['integer']
+    - **Operational**. Forecasted average carbon intensity of the node for the next N windows/hours. ['integer']
+  - **WorkloadCaracteristics**. Forecasted average utilization of the node for the next N windows/hours. ['array']
 - **Policy**:
   - **Aggregatable**:
     - **MinCount**. Minimum required number of instances of the Flavor. ['integer']
