@@ -3,7 +3,7 @@
   "vm": {
     "Characteristics": {
       "Architecture": "x86_64",
-      "CPU": 4,
+      "CPU": 6,
       "Memory": 8192,
       "GPU": 1,
       "Storage": 500
