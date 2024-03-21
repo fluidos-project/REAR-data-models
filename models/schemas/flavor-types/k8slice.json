@@ -26,6 +26,15 @@
                 "Storage": {
                     "type": "integer",
                     "description": "The amount of storage"
+                }
+            }
+        },
+        "Properties": {
+            "type": "object",
+            "properties": {
+                "Latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor."
                 },
                 "SecurityStandards": {
                     "type": "array",
@@ -34,12 +43,27 @@
                         "type": "string"
                     }
                 },
-                "Latency": {
-                    "type": "integer",
-                    "description": "The latency of the Flavor."
+                "CarbonFootprint": {
+                    "type": "object",
+                    "properties": {
+                        "Embodied": {
+                            "type": "integer",
+                            "description": "Embodied carbon of the node hardware normalized by its expected lifetime."
+                        },
+                        "Operational": {
+                            "type": "integer",
+                            "description": "Forecasted average carbon intensity of the node for the next N windows/hours."
+                        }
+                    }
+                },
+                "WorkloadCaracteristics": {
+                    "type": "array",
+                    "description": "Forecasted average utilization of the node for the next N windows/hours.",
+                    "items": {
+                        "type": "integer"
+                    }
                 }
-            },
-            "additionalProperties": false
+            }
         },
         "Policy": {
             "type": "object",
@@ -55,8 +79,7 @@
                             "type": "integer",
                             "description": "Maximum required number of instances of the Flavor."
                         }
-                    },
-                    "additionalProperties": false
+                    }
                 },
                 "Partitionable": {
                     "type": "object",
@@ -77,8 +100,7 @@
                             "type": "integer",
                             "description": "Incremental value of RAM of the Flavor."
                         }
-                    },
-                    "additionalProperties": false
+                    }
                 }
             }
         }

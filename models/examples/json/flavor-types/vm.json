@@ -2,19 +2,30 @@
   "vm": {
     "Characteristics": {
       "Architecture": "x86_64",
-      "CPU": 2,
-      "Memory": 4096,
-      "GPU": 0,
-      "Storage": 100,
+      "CPU": 4,
+      "Memory": 8192,
+      "GPU": 1,
+      "Storage": 500
+    },
+    "Properties": {
+      "Latency": 20,
       "SecurityStandards": [
         "GDPR"
       ],
-      "Latency": 10
+      "CarbonFootprint": {
+        "Embodied": 100,
+        "Operational": 25
+      },
+      "WorkloadCaracteristics": [
+        70,
+        65,
+        80
+      ]
     },
     "Policy": {
       "Aggregatable": {
-        "MinCount": 1,
-        "MaxCount": 4
+        "MinCount": 2,
+        "MaxCount": 5
       }
     }
   }
