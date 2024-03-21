@@ -72,35 +72,35 @@
                         }
                     }
                 }
-            },
-            "AccessType": {
-                "oneOf": [
-                    {
-                        "type": "object",
-                        "title": "HTTP",
-                        "properties": {
-                            "method": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "description": "HTTP method supported."
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "object",
-                        "title": "MQTT",
-                        "properties": {
-                            "QoS": {
-                                "type": "string",
-                                "title": "QoS",
-                                "description": "QoS level guaranteed."
+            }
+        },
+        "AccessType": {
+            "description": "The access type of the sensor. Currently, HTTP and MQTT are supported.",
+            "oneOf": [
+                {
+                    "type": "object",
+                    "title": "HTTP",
+                    "properties": {
+                        "method": {
+                            "type": "array",
+                            "description": "HTTP method supported.",
+                            "items": {
+                                "type": "string"
                             }
                         }
                     }
-                ]
-            }
+                },
+                {
+                    "type": "object",
+                    "title": "MQTT",
+                    "description": "QoS level guaranteed.",
+                    "properties": {
+                        "QoS": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
         }
     }
 }
