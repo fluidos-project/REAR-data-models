@@ -71,35 +71,35 @@
                         }
                     }
                 }
-            },
-            "AccessType": {
-                "oneOf": [
-                    {
-                        "type": "object",
-                        "title": "HTTP",
-                        "properties": {
-                            "method": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "description": "HTTP method supported."
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "type": "object",
-                        "title": "MQTT",
-                        "properties": {
-                            "QoS": {
+            }
+        },
+        "AccessType": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "title": "HTTP",
+                    "properties": {
+                        "method": {
+                            "type": "array",
+                            "items": {
                                 "type": "string",
-                                "title": "QoS",
-                                "description": "QoS level guaranteed."
+                                "description": "HTTP method supported."
                             }
                         }
                     }
-                ]
-            }
+                },
+                {
+                    "type": "object",
+                    "title": "MQTT",
+                    "properties": {
+                        "QoS": {
+                            "type": "string",
+                            "title": "QoS",
+                            "description": "QoS level guaranteed."
+                        }
+                    }
+                }
+            ]
         }
     }
 }
