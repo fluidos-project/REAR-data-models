@@ -1,32 +1,30 @@
 {
-  "vm": {
-    "Characteristics": {
-      "Architecture": "x86_64",
-      "CPU": 6,
-      "Memory": 8192,
-      "GPU": 1,
-      "Storage": 500
+  "Characteristics": {
+    "Architecture": "x86_64",
+    "OS": "Ubuntu 22.04",
+    "CPU": 2,
+    "Memory": 8192,  
+    "GPU": {
+      "GPUModel": "None", 
+      "GPUCores": 0
     },
-    "Properties": {
-      "Latency": 20,
-      "SecurityStandards": [
-        "GDPR"
-      ],
-      "CarbonFootprint": {
-        "Embodied": 100,
-        "Operational": 25
-      },
-      "WorkloadCaracteristics": [
-        70,
-        65,
-        80
+    "Storage": 128 
+  },
+  "Properties": {
+    "Latency": 30,  
+    "SecurityStandards": ["GDPR"],
+    "CarbonFootprint": {
+      "Embodied": 150,  
+      "Operational": [
+        200,  
+        123  
       ]
-    },
-    "Policy": {
-      "Aggregatable": {
-        "MinCount": 2,
-        "MaxCount": 5
-      }
+    }
+  },
+  "Policy": {
+    "Aggregatable": {
+      "MinCount": 1,
+      "MaxCount": 10
     }
   }
 }

@@ -11,6 +11,10 @@
             "type": "string",
             "description": "The unique identifier for a provider"
         },
+        "Timestamp": {
+            "type": "string",
+            "description": "Timestamp of the provided Flavor offer. It allows to advertise Flavors in the (near) future"
+        },
         "Location": {
             "type": "object",
             "properties": {
@@ -109,6 +113,10 @@
                     "description": "ID of the worker that provides the Flavor."
                 }
             }
+        },
+        "AdditionalInfo": {
+            "type": "string",
+            "description": "Additional information to enrich the Flavor description using a key: value representation."
         }
     }
 }
