@@ -12,7 +12,7 @@ In the following we represent some examples of JSON, you can find the original J
 
 # Flavor
 ![0](models/examples/svg/flavor.svg)
-- **FlavorID**. The unique identifier for a flavor. ['string']
+- **FlavorID**. The unique identifier for a flavor ['string']
 - **ProviderID**. The unique identifier for a provider ['string']
 - **Timestamp**. Timestamp of the provided Flavor offer. It allows to advertise Flavors in the (near) future ['string']
 - **Location**:
