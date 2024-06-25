@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "configuration",
+    "properties": {
+        "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "The type of the configuration",
+            "enum": [
+                "k8slice",
+                "vm",
+                "service",
+                "sensor"
+            ]
+        },
+        "data": {
+            "type": "object",
+            "title": "Data",
+            "description": "The configuration data",
+            "oneOf": [
+                {
+                    "$ref": "./configurationTypes/k8slice-configuration.schema.json"
+                }
+            ]
+        }
+    },
+    "required": [
+        "type",
+        "data"
+    ],
+    "additionalProperties": false
+}

@@ -1,0 +1,30 @@
+{
+    "Characteristics": {
+        "Architecture": "x86_64",
+        "OS": "Ubuntu 20.04",
+        "CPU": 4,
+        "Memory": 8192,
+        "GPU": {
+            "GPUModel": "NVIDIA RTX 3080",
+            "GPUCores": 10
+        },
+        "Storage": 100
+    },
+    "Properties": {
+        "Latency": 30,
+        "SecurityStandards": [
+            "GDPR",
+            "ISO 27001"
+        ],
+        "CarbonFootprint": {
+            "Embodied": 1500,
+            "Operational": []
+        }
+    },
+    "Policy": {
+        "Aggregatable": {
+            "MinCount": 1,
+            "MaxCount": 10
+        }
+    }
+}

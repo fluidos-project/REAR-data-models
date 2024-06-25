@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Contract",
+    "properties": {
+        "ContractID": {
+            "type": "string",
+            "description": "The contract ID"
+        },
+        "Flavor": {
+            "$ref": "./flavor.schema.json",
+            "description": "The flavor of the contract"
+        },
+        "Buyer": {
+            "$ref": "node-identity.schema.json",
+            "description": "The buyer of the contract"
+        },
+        "Seller": {
+            "$ref": "node-identity.schema.json",
+            "description": "The seller of the contract"
+        },
+        "ExpirationTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The expiration time of the contract"
+        },
+        "Credentials": {
+            "$ref": "credentials/liqo-credentials.schema.json"
+        }
+    }
+}

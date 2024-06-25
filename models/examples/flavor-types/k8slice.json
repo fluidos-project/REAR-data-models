@@ -1,0 +1,35 @@
+{
+    "name": "ExampleK8Slice",
+    "characteristics": {
+        "cpu": "2",
+        "pods": "5",
+        "memory": "4Gi",
+        "gpu": {
+            "model": "NVIDIA Tesla K80",
+            "cores": "1",
+            "memory": "12Gi"
+        },
+        "storage": "100Gi"
+    },
+    "properties": {
+        "latency": 50,
+        "securityStandards": [
+            "GDPR",
+            "HIPAA"
+        ],
+        "carbonFootprint": {
+            "embodied": 2000,
+            "operational": []
+        }
+    },
+    "policies": {
+        "partitionability": {
+            "cpuMin": "500m",
+            "memoryMin": "1Gi",
+            "podsMin": "1",
+            "cpuStep": "250m",
+            "memoryStep": "512Mi",
+            "podsStep": "1"
+        }
+    }
+}

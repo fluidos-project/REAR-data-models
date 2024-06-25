@@ -1,0 +1,16 @@
+{
+    "ContractID": "12345-abcde",
+    "Flavor": {
+        "$ref": "./flavor.schema.json"
+    },
+    "Buyer": {
+        "$ref": "node-identity.schema.json"
+    },
+    "Seller": {
+        "$ref": "node-identity.schema.json"
+    },
+    "ExpirationTime": "2024-12-31T23:59:59Z",
+    "Credentials": {
+        "$ref": "credentials/liqo-credentials.schema.json"
+    }
+}
