@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Service",
+    "description": "Service flavor type",
+    "properties": {
+        "Characteristics": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Name of the flavor."
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "Description of the flavor."
+                },
+                "Tags": {
+                    "type": "array",
+                    "description": "Tags associated with the flavor.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "Plan": {
+                    "type": "string",
+                    "description": "Plan of the flavor."
+                },
+                "Latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor."
+                },
+                "SecurityStandards": {
+                    "type": "array",
+                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

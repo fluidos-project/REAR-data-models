@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "K8SliceConfiguration",
+    "properties": {
+        "cpu": {
+            "type": "string",
+            "description": "The number of CPU cores",
+            "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+        },
+        "pods": {
+            "type": "string",
+            "description": "The number of pods",
+            "pattern": "^[0-9]+$"
+        },
+        "memory": {
+            "type": "string",
+            "description": "The amount of memory",
+            "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+        },
+        "gpu": {
+            "type": "object",
+            "description": "GPU characteristics of the Flavor.",
+            "properties": {
+                "model" : {
+                    "type": "string",
+                    "description": "The model of the GPU offered for the specific Flavor."
+                },
+                "cores": {
+                    "type": "string",
+                    "description": "The number of GPU cores advertised by the Flavor.",
+                    "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "The amount of GPU memory advertised by the Flavor.",
+                    "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                }
+            }
+        },
+        "storage": {
+            "type": "string",
+            "description": "The amount of storage",
+            "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+        }
+    },
+    "required": [
+        "cpu",
+        "pods",
+        "memory"
+    ],
+    "additionalProperties": false
+}

@@ -1,0 +1,5 @@
+{
+    "LiqoCredentials": {
+        "$ref": "credentials/liqo-credentials.schema.json"
+    }
+}

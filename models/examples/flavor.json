@@ -1,0 +1,33 @@
+{
+    "flavorId": "flavor-123",
+    "providerId": "provider-456",
+    "timestamp": "2024-07-15T12:00:00Z",
+    "location": {
+        "latitude": "37.7749",
+        "longitude": "-122.4194",
+        "country": "USA",
+        "city": "San Francisco",
+        "additionalNotes": "Near the waterfront"
+    },
+    "networkPropertyType": "5G",
+    "type": {
+        "name": "k8slice",
+        "data": {
+            "$ref": "flavor-types/k8slice.json"
+        }
+    },
+    "price": {
+        "amount": "100",
+        "currency": "USD",
+        "period": "monthly"
+    },
+    "owner": {
+        "domain": "example.com",
+        "nodeId": "node-789",
+        "ip": "192.168.1.1",
+        "additionalInformation": {
+            "LiqoID": "liqo-001"
+        }
+    },
+    "availability": true
+}

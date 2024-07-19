@@ -1,0 +1,9 @@
+{
+    "FlavorID": "flavor-789",
+    "Buyer": {
+        "$ref": "node-identity.schema.json"
+    },
+    "Configuration": {
+        "$ref": "configuration.schema.json"
+    }
+}
