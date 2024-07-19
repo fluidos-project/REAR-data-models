@@ -1,5 +1,6 @@
 @startjson
 {
+    "architecture": "x86",
     "cpu": "2",
     "pods": "5",
     "memory": "4Gi",

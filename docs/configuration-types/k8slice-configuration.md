@@ -4,6 +4,7 @@
 
 [Show schema SVG](../../svg/models/schemas/configuration-types/k8slice-configuration.svg)
 
+- **architecture**. The architecture of the Flavor (e.g., x86, ARM). [string]
 - **cpu**. The number of CPU cores [string]
 - **pods**. The number of pods [string]
 - **memory**. The amount of memory [string]
