@@ -1,0 +1,8 @@
+@startjson
+{
+    "type": "k8slice",
+    "data": {
+        "$ref": "./configurationTypes/k8slice-configuration.schema.json"
+    }
+}
+@endjson

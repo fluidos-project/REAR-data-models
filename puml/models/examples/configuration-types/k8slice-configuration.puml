@@ -1,0 +1,13 @@
+@startjson
+{
+    "cpu": "2",
+    "pods": "5",
+    "memory": "4Gi",
+    "gpu": {
+        "model": "NVIDIA Tesla V100",
+        "cores": "1",
+        "memory": "16Gi"
+    },
+    "storage": "100Gi"
+}
+@endjson

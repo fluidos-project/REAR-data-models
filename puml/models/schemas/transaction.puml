@@ -1,0 +1,26 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Transaction",
+    "properties": {
+        "TransactionID": {
+            "type": "string",
+            "description": "The unique identifier for the transaction"
+        },
+        "FlavorID": {
+            "type": "string",
+            "description": "The unique identifier for the flavor reserved"
+        },
+        "Buyer": {
+            "$ref": "node-identity.schema.json",
+            "description": "The node identity of the buyer that is reserverving the flavor"
+        },
+        "ExpirationTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The expiration time of the transaction"
+        }
+    }
+}
+@endjson

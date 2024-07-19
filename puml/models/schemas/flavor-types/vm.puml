@@ -1,0 +1,96 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "VM",
+    "description": "Virtual Machine flavor type",
+    "properties": {
+        "Characteristics": {
+            "type": "object",
+            "properties": {
+                "Architecture": {
+                    "type": "string",
+                    "description": "Architecture of the Flavor."
+                },
+                "OS": {
+                    "type": "string",
+                    "description": "The Operating System of the advertised VM"
+                },
+                "CPU": {
+                    "type": "integer",
+                    "description": "Number of CPU cores of the Flavor."
+                },
+                "Memory": {
+                    "type": "integer",
+                    "description": "Amount of RAM of the Flavor."
+                },
+                "GPU": {
+                    "type": "object",
+                    "description": "GPU characteristics of the Flavor.",
+                    "properties": {
+                        "GPUModel" : {
+                            "type": "string",
+                            "description": "The model of the GPU offered for the specific Flavor."
+                        },
+                        "GPUCores": {
+                            "type": "integer",
+                            "description": "The number of GPU cores advertised by the Flavor."
+                        }
+                    }
+                },
+                "Storage": {
+                    "type": "integer",
+                    "description": "The amount of storage"
+                }
+            }
+        },
+        "Properties": {
+            "type": "object",
+            "properties": {
+                "Latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor."
+                },
+                "SecurityStandards": {
+                    "type": "array",
+                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "CarbonFootprint": {
+                    "type": "object",
+                    "properties": {
+                        "Embodied": {
+                            "type": "integer",
+                            "description": "Embodied carbon of the node hardware normalized by its expected lifetime."
+                        },
+                        "Operational": {
+                            "type": "array",
+                            "description": "Forecasted average carbon intensity of the node for the next N windows/hours."
+                        }
+                    }
+                }
+            }
+        },
+        "Policy": {
+            "type": "object",
+            "properties": {
+                "Aggregatable": {
+                    "type": "object",
+                    "properties": {
+                        "MinCount": {
+                            "type": "integer",
+                            "description": "Minimum required number of instances of the Flavor."
+                        },
+                        "MaxCount": {
+                            "type": "integer",
+                            "description": "Maximum required number of instances of the Flavor."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@endjson

@@ -1,0 +1,128 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "K8Slice",
+    "description": "Kubernetes Flavor Type",
+    "properties": {
+        "characteristics": {
+            "type": "object",
+            "properties": {
+                "cpu": {
+                    "type": "string",
+                    "description": "The number of CPU cores",
+                    "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+                },
+                "pods": {
+                    "type": "string",
+                    "description": "The number of pods",
+                    "pattern": "^[0-9]+$"
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "The amount of memory",
+                    "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                },
+                "gpu": {
+                    "type": "object",
+                    "description": "GPU characteristics of the Flavor.",
+                    "properties": {
+                        "model" : {
+                            "type": "string",
+                            "description": "The model of the GPU offered for the specific Flavor."
+                        },
+                        "cores": {
+                            "type": "string",
+                            "description": "The number of GPU cores advertised by the Flavor.",
+                            "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+                        },
+                        "memory": {
+                            "type": "string",
+                            "description": "The amount of GPU memory advertised by the Flavor.",
+                            "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                        }
+                    }
+                },
+                "storage": {
+                    "type": "string",
+                    "description": "The amount of storage",
+                    "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                }
+            },
+            "required": ["cpu", "pods", "memory"],
+            "additionalProperties": false
+        },
+        "properties": {
+            "type": "object",
+            "properties": {
+                "latency": {
+                    "type": "integer",
+                    "description": "The latency of the Flavor in milliseconds."
+                },
+                "securityStandards": {
+                    "type": "array",
+                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "carbonFootprint": {
+                    "type": "object",
+                    "properties": {
+                        "embodied": {
+                            "type": "integer",
+                            "description": "Embodied carbon of the node hardware normalized by its expected lifetime."
+                        },
+                        "operational": {
+                            "type": "array",
+                            "description": "Forecasted average carbon intensity of the node for the next N windows/hours."
+                        }
+                    }
+                }
+            }
+        },
+        "policies": {
+            "type": "object",
+            "properties": {
+                "partitionability": {
+                    "type": "object",
+                    "properties": {
+                        "cpuMin": {
+                            "type": "string",
+                            "description": "Minimum required number of CPU cores of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+                        },
+                        "memoryMin": {
+                            "type": "string",
+                            "description": "Minimum required amount of RAM of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                        },
+                        "podsMin": {
+                            "type": "string",
+                            "description": "Minimum required number of pods of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+$"
+                        },
+                        "cpuStep": {
+                            "type": "string",
+                            "description": "Incremental value of CPU cores of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+(m|([.][0-9]+)?|[kMGTP]i?)?$"
+                        },
+                        "memoryStep": {
+                            "type": "string",
+                            "description": "Incremental value of RAM of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+(Ki|Mi|Gi|Ti|Pi|Ei|k|M|G|T|P|E)?$"
+                        },
+                        "podsStep": {
+                            "type": "string",
+                            "description": "Incremental value of pods of the Flavor for the eventual partition.",
+                            "pattern": "^[0-9]+$"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "characteristics", "properties", "policies"],
+    "additionalProperties": false
+}
+@endjson

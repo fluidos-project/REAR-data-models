@@ -1,0 +1,142 @@
+@startjson
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Flavor",
+    "type": "object",
+    "properties": {
+        "flavorId": {
+            "type": "string",
+            "description": "The unique identifier for a flavor"
+        },
+        "providerId": {
+            "type": "string",
+            "description": "The unique identifier for a provider"
+        },
+        "timestamp": {
+            "type": "string",
+            "description": "Timestamp of the provided Flavor offer. It allows to advertise Flavors in the (near) future"
+        },
+        "location": {
+            "type": "object",
+            "description": "Location of the Flavor",
+            "properties": {
+                "latitude": {
+                    "type": "string",
+                    "description": "Latitude of the location"
+                },
+                "longitude": {
+                    "type": "string",
+                    "description": "Longitude of the location"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country of the location"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "City of the location"
+                },
+                "additionalNotes": {
+                    "type": "string",
+                    "description": "Additional notes about the location"
+                }
+            },
+            "additionalProperties": false
+        },
+        "networkPropertyType": {
+            "type": "string",
+            "description": "Type of network property ensured by the provider (e.g., 5G, Wifi, Ethernet)"
+        },
+        "type": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the type of the Flavor.",
+                    "enum": [
+                        "k8slice",
+                        "vm",
+                        "service",
+                        "sensor"
+                    ]
+                },
+                "data": {
+                    "type": "object",
+                    "description": "A reference to a specific flavor type schema using JSON references ($ref) to external files like 'k8slice.json', 'vm.json', etc. This allows defining details specific to each flavor type.",
+                    "oneOf": [
+                        {
+                            "$ref": "flavor-types/k8slice.json"
+                        },
+                        {
+                            "$ref": "flavor-types/vm.json"
+                        },
+                        {
+                            "$ref": "flavor-types/service.json"
+                        },
+                        {
+                            "$ref": "flavor-types/sensor.json"
+                        }
+                    ]
+                }
+            }            
+        },
+        "price": {
+            "type": "object",
+            "description": "Price of the Flavor.",
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "description": "Amount of the price."
+                },
+                "currency": {
+                    "type": "string",
+                    "description": "Currency of the price."
+                },
+                "period": {
+                    "type": "string",
+                    "description": "Period of the price."
+                }
+            },
+            "required": ["amount", "currency", "period"],
+            "additionalProperties": false
+        },
+        "owner": {
+            "type": "object",
+            "description": "Owner of the Flavor.",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Domain of the node."
+                },
+                "nodeId": {
+                    "type": "string",
+                    "description": "ID of the node."
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP of the node."
+                },
+                "additionalInformation": {
+                    "type": "object",
+                    "description": "Additional information about the node.",
+                    "properties": {
+                        "LiqoID": {
+                            "type": "string",
+                            "description": "Liqo ID of the node."
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            },
+            "required": ["domain", "nodeId", "ip"],
+            "additionalProperties": false
+        },
+        "availability": {
+            "type": "boolean",
+            "description": "Availability flag of the Flavor."
+        }
+    },
+    "required": ["flavorId", "providerId", "timestamp", "type", "price", "owner", "availability"],
+    "additionalProperties": false
+}
+@endjson

@@ -1,0 +1,7 @@
+@startjson
+{
+    "LiqoCredentials": {
+        "$ref": "credentials/liqo-credentials.schema.json"
+    }
+}
+@endjson

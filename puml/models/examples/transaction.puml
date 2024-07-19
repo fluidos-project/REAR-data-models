@@ -1,0 +1,10 @@
+@startjson
+{
+    "TransactionID": "txn-001",
+    "FlavorID": "flavor-789",
+    "Buyer": {
+        "$ref": "node-identity.schema.json"
+    },
+    "ExpirationTime": "2024-12-31T23:59:59Z"
+}
+@endjson

@@ -1,0 +1,20 @@
+@startjson
+{
+    "Characteristics": {
+        "Name": "Database Service",
+        "Description": "A scalable database service for applications.",
+        "Tags": [
+            "database",
+            "scalable",
+            "managed"
+        ],
+        "Plan": "Premium",
+        "Latency": 20,
+        "SecurityStandards": [
+            "ISO 27001",
+            "GDPR"
+        ]
+    }
+}
+
+@endjson
