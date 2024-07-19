@@ -3,6 +3,10 @@
     "type": "object",
     "title": "K8SliceConfiguration",
     "properties": {
+        "architecture": {
+            "type": "string",
+            "description": "The architecture of the Flavor (e.g., x86, ARM)."
+        },
         "cpu": {
             "type": "string",
             "description": "The number of CPU cores",
