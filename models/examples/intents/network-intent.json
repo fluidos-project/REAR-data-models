@@ -1,0 +1,26 @@
+{
+    "name": "NetworkIntent1",
+    "source": {
+        "isHostCluster": true,
+        "resourceSelector": {
+            "pod": [
+                {
+                    "key": "app",
+                    "value": "*"
+                }
+            ],
+            "namespace": [
+                {
+                    "key": "env",
+                    "value": "production"
+                }
+            ]
+        }
+    },
+    "destination": {
+        "isHostCluster": false,
+        "resourceSelector": "10.0.0.0/16"
+    },
+    "destinationPort": "443",
+    "protocolType": "HTTPS"
+}
