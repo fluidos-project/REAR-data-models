@@ -20,26 +20,6 @@ In the following we represent some examples of JSON, you can find the original J
   - **Buyer**.  [Reference: #node-identity]
   - **Configuration**. The configuration of the flavour to reserve [Reference: #configuration]
 
-## Node-identity
-
-![Example SVG](svg/models/examples/node-identity.svg)
-
-[Show schema SVG](svg/models/schemas/node-identity.svg)
-
-  - **Domain**. Domain of the node. [string]
-  - **NodeID**. ID of the node. [string]
-  - **IP**. IP of the node. [string]
-  - **AdditionalInformation**:
-    - **LiqoID**. Liqo ID of the node. [string]
-
-## Purchase-request
-
-![Example SVG](svg/models/examples/purchase-request.svg)
-
-[Show schema SVG](svg/models/schemas/purchase-request.svg)
-
-  - **LiqoCredentials**.  [Reference: #liqo-credentials]
-
 ## Configuration
 
 ![Example SVG](svg/models/examples/configuration.svg)
@@ -50,6 +30,17 @@ In the following we represent some examples of JSON, you can find the original J
   - **data**. The configuration data
 ### Configuration types
 - [K8slice-configuration](docs/configuration-types/k8slice-configuration.md)
+
+## Transaction
+
+![Example SVG](svg/models/examples/transaction.svg)
+
+[Show schema SVG](svg/models/schemas/transaction.svg)
+
+  - **TransactionID**. The unique identifier for the transaction [string]
+  - **FlavorID**. The unique identifier for the flavor reserved [string]
+  - **Buyer**. The node identity of the buyer that is reserverving the flavor [Reference: #node-identity]
+  - **ExpirationTime**. The expiration time of the transaction [string]
 
 ## Flavor
 
@@ -83,20 +74,9 @@ In the following we represent some examples of JSON, you can find the original J
   - **availability**. Availability flag of the Flavor. [boolean]
 ### Flavor types
 - [Sensor](docs/flavor-types/sensor.md)
-- [K8slice](docs/flavor-types/k8slice.md)
-- [Service](docs/flavor-types/service.md)
 - [Vm](docs/flavor-types/vm.md)
-
-## Transaction
-
-![Example SVG](svg/models/examples/transaction.svg)
-
-[Show schema SVG](svg/models/schemas/transaction.svg)
-
-  - **TransactionID**. The unique identifier for the transaction [string]
-  - **FlavorID**. The unique identifier for the flavor reserved [string]
-  - **Buyer**. The node identity of the buyer that is reserverving the flavor [Reference: #node-identity]
-  - **ExpirationTime**. The expiration time of the transaction [string]
+- [Service](docs/flavor-types/service.md)
+- [K8slice](docs/flavor-types/k8slice.md)
 
 ## Contract
 
@@ -110,6 +90,27 @@ In the following we represent some examples of JSON, you can find the original J
   - **Seller**. The seller of the contract [Reference: #node-identity]
   - **ExpirationTime**. The expiration time of the contract [string]
   - **Credentials**.  [Reference: #liqo-credentials]
+  - **NetworkRequests**. The name of the ConfigMap containing the network request intents [string]
+
+## Node-identity
+
+![Example SVG](svg/models/examples/node-identity.svg)
+
+[Show schema SVG](svg/models/schemas/node-identity.svg)
+
+  - **Domain**. Domain of the node. [string]
+  - **NodeID**. ID of the node. [string]
+  - **IP**. IP of the node. [string]
+  - **AdditionalInformation**:
+    - **LiqoID**. Liqo ID of the node. [string]
+
+## Purchase-request
+
+![Example SVG](svg/models/examples/purchase-request.svg)
+
+[Show schema SVG](svg/models/schemas/purchase-request.svg)
+
+  - **LiqoCredentials**.  [Reference: #liqo-credentials]
 
 ## Liqo-credentials
 
@@ -121,3 +122,19 @@ In the following we represent some examples of JSON, you can find the original J
   - **clusterName**. The name of the cluster [string]
   - **endpoint**. The endpoint of the cluster [string]
   - **token**. The token to be used for the peering [string]
+
+## Network-intent
+
+![Example SVG](svg/models/examples/intents/network-intent.svg)
+
+[Show schema SVG](svg/models/schemas/intents/network-intent.svg)
+
+  - **name**. The identifier of the network intent [string]
+  - **source**:
+    - **isHostCluster**. The source is in the host cluster [boolean]
+    - **resourceSelector**. Selector for the source
+  - **destination**:
+    - **isHostCluster**. The destination is in the host cluster [boolean]
+    - **resourceSelector**. Selector for the destination
+  - **destinationPort**. The destination port of the communication [string]
+  - **protocolType**. The protocol type of the communication [string]

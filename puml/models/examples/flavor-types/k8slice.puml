@@ -22,6 +22,18 @@
         "carbonFootprint": {
             "embodied": 2000,
             "operational": []
+        },
+        "networkAuthorizations": {
+            "deniedCommunications": [
+                {
+                    "$ref": "intents/network-intent.json"
+                }
+            ],
+            "mandatoryCommunications": [
+                {
+                    "$ref": "intents/network-intent.json"
+                }
+            ]
         }
     },
     "policies": {

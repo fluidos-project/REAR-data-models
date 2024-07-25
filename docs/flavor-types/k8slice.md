@@ -20,6 +20,9 @@
   - **carbonFootprint**:
     - **embodied**. Embodied carbon of the node hardware normalized by its expected lifetime. [integer]
     - **operational**. Forecasted average carbon intensity of the node for the next N windows/hours. [array]
+  - **networkAuthorizations**:
+    - **deniedCommunications**. List of denied communication. [array]
+    - **mandatoryCommunications**. List of mandatory communication (e.g., monitoring). [array]
 - **policies**:
   - **partitionability**:
     - **cpuMin**. Minimum required number of CPU cores of the Flavor for the eventual partition. [string]
