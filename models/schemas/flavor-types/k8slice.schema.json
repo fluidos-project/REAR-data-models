@@ -81,6 +81,26 @@
                             "description": "Forecasted average carbon intensity of the node for the next N windows/hours."
                         }
                     }
+                },
+                "networkAuthorizations": {
+                    "type": "object",
+                    "description": "Network authorizations of the Flavor.",
+                    "properties": {
+                        "deniedCommunications": {
+                            "type": "array",
+                            "description": "List of denied communication.",
+                            "items": {
+                                "$ref": "../intents/networkIntent.json"
+                            }
+                        },
+                        "mandatoryCommunications": {
+                            "type": "array",
+                            "description": "List of mandatory communication (e.g., monitoring).",
+                            "items": {
+                                "$ref": "../intents/network-intent.schema.json"
+                            }
+                        }
+                    }
                 }
             }
         },

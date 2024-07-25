@@ -12,5 +12,6 @@
     "ExpirationTime": "2024-12-31T23:59:59Z",
     "Credentials": {
         "$ref": "credentials/liqo-credentials.schema.json"
-    }
+    },
+    "NetworkRequests": "configMap-14921"
 }
