@@ -1,20 +1,31 @@
 @startjson
 {
-    "Characteristics": {
-        "Name": "Database Service",
-        "Description": "A scalable database service for applications.",
-        "Tags": [
-            "database",
-            "scalable",
-            "managed"
-        ],
-        "Plan": "Premium",
-        "Latency": 20,
-        "SecurityStandards": [
-            "ISO 27001",
-            "GDPR"
-        ]
-    }
+    "name": "ApacheKafkaBroker",
+    "characteristics": "{\n" +
+    "    \"version\": \"2.8.0\",\n" +
+    "    \"brokerId\": 1,\n" +
+    "    \"host\": \"kafka-broker-01.example.com\",\n" +
+    "    \"port\": 9092,\n" +
+    "    \"logDirs\": \"/var/lib/kafka/logs\",\n" +
+    "    \"numPartitions\": 10,\n" +
+    "    \"replicationFactor\": 3,\n" +
+    "    \"zookeeperConnect\": \"zookeeper-01.example.com:2181\",\n" +
+    "    \"securityProtocol\": \"SASL_SSL\",\n" +
+    "    \"saslMechanism\": \"PLAIN\",\n" +
+    "    \"listeners\": \"PLAINTEXT://0.0.0.0:9092,SSL://0.0.0.0:9093\",\n" +
+    "    \"autoCreateTopicsEnable\": true,\n" +
+    "    \"numNetworkThreads\": 3,\n" +
+    "    \"numIoThreads\": 8,\n" +
+    "    \"socketSendBufferBytes\": 102400,\n" +
+    "    \"socketReceiveBufferBytes\": 102400,\n" +
+    "    \"socketRequestMaxBytes\": 104857600,\n" +
+    "    \"logRetentionHours\": 168,\n" +
+    "    \"logSegmentBytes\": 1073741824,\n" +
+    "    \"logRetentionCheckIntervalMs\": 300000,\n" +
+    "    \"messageMaxBytes\": 1000012,\n" +
+    "    \"replicaFetchMaxBytes\": 1048576,\n" +
+    "    \"replicaFetchWaitMaxMs\": 500,\n" +
+    "    \"minInsyncReplicas\": 2\n" +
+    "}"
 }
-
 @endjson

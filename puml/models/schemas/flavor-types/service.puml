@@ -5,40 +5,13 @@
     "title": "Service",
     "description": "Service flavor type",
     "properties": {
-        "Characteristics": {
-            "type": "object",
-            "properties": {
-                "Name": {
-                    "type": "string",
-                    "description": "Name of the flavor."
-                },
-                "Description": {
-                    "type": "string",
-                    "description": "Description of the flavor."
-                },
-                "Tags": {
-                    "type": "array",
-                    "description": "Tags associated with the flavor.",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "Plan": {
-                    "type": "string",
-                    "description": "Plan of the flavor."
-                },
-                "Latency": {
-                    "type": "integer",
-                    "description": "The latency of the Flavor."
-                },
-                "SecurityStandards": {
-                    "type": "array",
-                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
+        "name": {
+            "type": "string",
+            "description": "Name of the service"
+        },
+        "characteristics": {
+            "type": "string",
+            "description": "JSON object containing service characteristics. This is a string to allow for flexibility in the schema definition."
         }
     }
 }
