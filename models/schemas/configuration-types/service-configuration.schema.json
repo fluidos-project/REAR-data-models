@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "ServiceConfiguration",
+    "properties": {
+        "HostingPolicy": {
+            "type": "string",
+            "description": "Hosting policy chosen for the service once deployed. It needs to be one of the hosting policies associated with the flavor."
+        },
+        "ConfigurationData": {
+            "type": "object",
+            "description": "Configuration parameters for the service. It needs to match the JSON Schema Parameters associated with the flavor."
+        }
+    },
+    "required": [
+        "ConfigurationData"
+    ]
+}
