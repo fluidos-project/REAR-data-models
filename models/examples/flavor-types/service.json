@@ -2,16 +2,32 @@
     "Characteristics": {
         "Name": "Database Service",
         "Description": "A scalable database service for applications.",
+        "Category": "database",
         "Tags": [
             "database",
             "scalable",
             "managed"
         ],
-        "Plan": "Premium",
-        "Latency": 20,
-        "SecurityStandards": [
-            "ISO 27001",
-            "GDPR"
-        ]
+        "HostingPolicies": [
+            "ProviderSide",
+            "ConsumerSide"
+        ],
+        "ConfigurationTemplate": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "description": "Username for the database."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password for the database."
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Database name."
+                }
+            }
+        }
     }
 }
