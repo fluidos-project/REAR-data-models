@@ -10,16 +10,6 @@ Therefore, we suggest to use tools like ChatGPT or Gemini, providing the JSON sc
 ```
 In the following we represent some examples of JSON, you can find the original JSON schemas [here](models/schemas).
 
-## Reservation
-
-![Example SVG](svg/models/examples/reservation.svg)
-
-[Show schema SVG](svg/models/schemas/reservation.svg)
-
-  - **FlavorID**. The unique identifier of the flavor to be reserved [string]
-  - **Buyer**.  [Reference: #node-identity]
-  - **Configuration**. The configuration of the flavour to reserve [Reference: #configuration]
-
 ## Configuration
 
 ![Example SVG](svg/models/examples/configuration.svg)
@@ -30,17 +20,17 @@ In the following we represent some examples of JSON, you can find the original J
   - **data**. The configuration data
 ### Configuration types
 - [K8slice-configuration](docs/configuration-types/k8slice-configuration.md)
+- [Service-configuration](docs/configuration-types/service-configuration.md)
 
-## Transaction
+## Reservation
 
-![Example SVG](svg/models/examples/transaction.svg)
+![Example SVG](svg/models/examples/reservation.svg)
 
-[Show schema SVG](svg/models/schemas/transaction.svg)
+[Show schema SVG](svg/models/schemas/reservation.svg)
 
-  - **TransactionID**. The unique identifier for the transaction [string]
-  - **FlavorID**. The unique identifier for the flavor reserved [string]
-  - **Buyer**. The node identity of the buyer that is reserverving the flavor [Reference: #node-identity]
-  - **ExpirationTime**. The expiration time of the transaction [string]
+  - **FlavorID**. The unique identifier of the flavor to be reserved [string]
+  - **Buyer**.  [Reference: #node-identity]
+  - **Configuration**. The configuration of the flavour to reserve [Reference: #configuration]
 
 ## Flavor
 
@@ -73,10 +63,29 @@ In the following we represent some examples of JSON, you can find the original J
       - **LiqoID**. Liqo ID of the node. [string]
   - **availability**. Availability flag of the Flavor. [boolean]
 ### Flavor types
-- [Sensor](docs/flavor-types/sensor.md)
-- [Vm](docs/flavor-types/vm.md)
-- [Service](docs/flavor-types/service.md)
 - [K8slice](docs/flavor-types/k8slice.md)
+- [Sensor](docs/flavor-types/sensor.md)
+- [Service](docs/flavor-types/service.md)
+- [Vm](docs/flavor-types/vm.md)
+
+## Transaction
+
+![Example SVG](svg/models/examples/transaction.svg)
+
+[Show schema SVG](svg/models/schemas/transaction.svg)
+
+  - **TransactionID**. The unique identifier for the transaction [string]
+  - **FlavorID**. The unique identifier for the flavor reserved [string]
+  - **Buyer**. The node identity of the buyer that is reserverving the flavor [Reference: #node-identity]
+  - **ExpirationTime**. The expiration time of the transaction [string]
+
+## Purchase-request
+
+![Example SVG](svg/models/examples/purchase-request.svg)
+
+[Show schema SVG](svg/models/schemas/purchase-request.svg)
+
+  - **LiqoCredentials**.  [Reference: #liqo-credentials]
 
 ## Contract
 
@@ -103,14 +112,6 @@ In the following we represent some examples of JSON, you can find the original J
   - **IP**. IP of the node. [string]
   - **AdditionalInformation**:
     - **LiqoID**. Liqo ID of the node. [string]
-
-## Purchase-request
-
-![Example SVG](svg/models/examples/purchase-request.svg)
-
-[Show schema SVG](svg/models/schemas/purchase-request.svg)
-
-  - **LiqoCredentials**.  [Reference: #liqo-credentials]
 
 ## Liqo-credentials
 

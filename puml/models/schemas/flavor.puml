@@ -65,16 +65,16 @@
                     "description": "A reference to a specific flavor type schema using JSON references ($ref) to external files like 'k8slice.json', 'vm.json', etc. This allows defining details specific to each flavor type.",
                     "oneOf": [
                         {
-                            "$ref": "flavor-types/k8slice.json"
+                            "$ref": "flavor-types/k8slice.schema.json"
                         },
                         {
-                            "$ref": "flavor-types/vm.json"
+                            "$ref": "flavor-types/vm.schema.json"
                         },
                         {
-                            "$ref": "flavor-types/service.json"
+                            "$ref": "flavor-types/service.schema.json"
                         },
                         {
-                            "$ref": "flavor-types/sensor.json"
+                            "$ref": "flavor-types/sensor.schema.json"
                         }
                     ]
                 }

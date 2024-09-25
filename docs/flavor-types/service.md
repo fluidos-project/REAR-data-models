@@ -7,7 +7,7 @@
 - **Characteristics**:
   - **Name**. Name of the flavor. [string]
   - **Description**. Description of the flavor. [string]
+  - **Category**. Category of the flavor. [string]
   - **Tags**. Tags associated with the flavor. [array]
-  - **Plan**. Plan of the flavor. [string]
-  - **Latency**. The latency of the Flavor. [integer]
-  - **SecurityStandards**. Security standards supported by the Flavor (e.g., GDPR). [array]
+  - **HostingPolicies**. Hosting policies associated with the flavor. Where the service can be hosted once deployed. [array]
+  - **ConfigurationTemplate**. JSON Schema Parameters [string]

@@ -68,7 +68,7 @@
                         },
                         "AccessProtocol": {
                             "type": "string",
-                            "description": "Not sure what that means"
+                            "description": "Protocol used to access the sensor data"
                         }
                     }
                 }

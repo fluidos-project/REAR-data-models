@@ -16,6 +16,10 @@
                     "type": "string",
                     "description": "Description of the flavor."
                 },
+                "Category": {
+                    "type": "string",
+                    "description": "Category of the flavor."
+                },
                 "Tags": {
                     "type": "array",
                     "description": "Tags associated with the flavor.",
@@ -23,23 +27,30 @@
                         "type": "string"
                     }
                 },
-                "Plan": {
-                    "type": "string",
-                    "description": "Plan of the flavor."
-                },
-                "Latency": {
-                    "type": "integer",
-                    "description": "The latency of the Flavor."
-                },
-                "SecurityStandards": {
+                "HostingPolicies": {
                     "type": "array",
-                    "description": "Security standards supported by the Flavor (e.g., GDPR).",
+                    "description": "Hosting policies associated with the flavor. Where the service can be hosted once deployed.",
                     "items": {
                         "type": "string"
                     }
+                },
+                "ConfigurationTemplate": {
+                    "type": "string",
+                    "description": "JSON Schema Parameters"
                 }
-            }
+            },
+            "required": [
+                "Name",
+                "Description",
+                "Category",
+                "Tags",
+                "HostingPolicies",
+                "ConfigurationTemplate"
+            ]
         }
-    }
+    },
+    "required": [
+        "Characteristics"
+    ]
 }
 @endjson

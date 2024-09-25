@@ -19,5 +19,5 @@
     - **MeasurementUnit**. The unit of measure for the measurements [string]
     - **ConsumptionUnit**. The unit of measure for the sensor power consumption [string]
     - **SamplingRateUnit**. The unit of measure for the sampling rate [string]
-    - **AccessProtocol**. Not sure what that means [string]
+    - **AccessProtocol**. Protocol used to access the sensor data [string]
 - **AccessType**. The access type of the sensor. Currently, HTTP and MQTT are supported.
