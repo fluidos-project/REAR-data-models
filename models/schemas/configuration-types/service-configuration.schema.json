@@ -8,7 +8,7 @@
             "description": "Hosting policy chosen for the service once deployed. It needs to be one of the hosting policies associated with the flavor."
         },
         "ConfigurationData": {
-            "type": "object",
+            "type": "string",
             "description": "Configuration parameters for the service. It needs to match the JSON Schema Parameters associated with the flavor."
         }
     },

@@ -34,7 +34,7 @@
                     }
                 },
                 "ConfigurationTemplate": {
-                    "type": "object",
+                    "type": "string",
                     "description": "JSON Schema Parameters"
                 }
             },
